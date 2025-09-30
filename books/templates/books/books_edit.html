@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book API Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 , h5 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #007bff;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    .btn.secondary {
+      background: #28a745;
+    }
+
+    .btn.secondary:hover {
+      background: #1e7e34;
+    }
+
+    .btn.tertiary {
+      background: #dc3545;
+    }
+
+    .btn.tertiary:hover {
+      background: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Book API (Create / Update)</h1>
+    <h5>for {{username}}</h5>
+    <form method="POST" action="">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="id">Book ID (for update)</label>
+        <input type="number" id="id" name="id" placeholder="Enter book id">
+      </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" placeholder="Enter book title">
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" placeholder="Enter book author">
+      </div>
+      <div class="form-group">
+        <label for="pages">Pages</label>
+        <input type="number" id="pages" name="pages" placeholder="Enter number of pages">
+      </div>
+      <button type="submit" class="btn" name="create">Create</button>
+      <button type="submit" class="btn secondary" name="update">Update</button>
+      <button type="submit" class="btn tertiary" name="delete">Delete</button>
+    </form>
+  </div>
+</body>
+</html>

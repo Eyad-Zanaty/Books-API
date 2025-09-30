@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 , h5 {
+      text-align: center;
+      color: #333;
+    }
+
+    .endpoint {
+      border-left: 6px solid #007bff;
+      background: #f0f4ff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+    }
+
+    .method {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .url {
+      font-family: monospace;
+      background: #eaeef5;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .desc {
+      margin-top: 5px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📡 API Endpoints</h1>
+    <h5>for {{username}}</h5>
+    {% for key, value in api_urls.items %}
+    <div class="endpoint">
+      <div class="method">{{key}}</div>
+      <div class="url">{{value}}</div>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
